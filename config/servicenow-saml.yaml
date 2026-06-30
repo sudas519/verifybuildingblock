@@ -1,0 +1,52 @@
+name: "ServiceNow"
+description: "SAML 2.0 SSO integration for ServiceNow via IBM Verify"
+type: saml
+company_id: "${COMPANY_ID}"
+
+sso:
+  entity_id: "https://servicenow.test.com"
+  acs_url: "https://servicenowagain.test.com"
+  slo_url: ""                          # Set SLO URL if ServiceNow SLO is configured
+  name_id_format: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+  sign_assertion: true
+  encrypt_assertion: false
+  sign_response: true
+  signature_algorithm: "RSA_SHA256"
+  digest_algorithm: "SHA256"
+
+# All standard IBM Verify user attributes mapped to SAML claims
+attribute_mapping:
+  - source: "email"
+    target: "email"
+    format: "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+  - source: "givenName"
+    target: "firstName"
+    format: "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+  - source: "familyName"
+    target: "lastName"
+    format: "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+  - source: "displayName"
+    target: "displayName"
+    format: "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+  - source: "mobileNumber"
+    target: "mobileNumber"
+    format: "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+  - source: "preferredLanguage"
+    target: "preferredLanguage"
+    format: "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+  - source: "jobTitle"
+    target: "jobTitle"
+    format: "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+  - source: "department"
+    target: "department"
+    format: "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+  - source: "organization"
+    target: "organization"
+    format: "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+
+certificates:
+  - path: "./certs/servicenow-sp-signing.pem"  # SP signing cert (optional for ServiceNow)
+    usage: "signing"
+
+user_assignment:
+  groups: []   # Add group names here, e.g. ["servicenow-users"]
