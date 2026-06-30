@@ -1,4 +1,4 @@
-# IBM Verify Onboarding Workspace
+# IBM Verify Onboarding
 
 A configuration-as-code workspace for onboarding SAML and OIDC applications into IBM Verify, managing users, and automating tenant configuration via IBM Verify APIs.
 
@@ -63,25 +63,7 @@ COMPANY_ID=your-company-id
 pip install requests pyyaml
 ```
 
-### 4. Run the onboarding script
 
-```bash
-source .env
-python3 scripts/onboard_servicenow_saml.py
-```
-
----
-
-## Adding a New Application
-
-1. Copy an existing config as a template:
-   ```bash
-   cp config/servicenow-saml.yaml config/myapp-saml.yaml
-   ```
-2. Edit `config/myapp-saml.yaml` with your application's details
-3. Open the workspace in Bob — ask it to onboard the new app and it will generate the script and call the APIs
-
----
 
 ## Security Notes
 
