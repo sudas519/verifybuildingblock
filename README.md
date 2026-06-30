@@ -72,14 +72,6 @@ python3 scripts/onboard_servicenow_saml.py
 
 ---
 
-## Applications Configured
-
-| Application | Protocol | Entity ID | ACS URL |
-|---|---|---|---|
-| ServiceNow (Test) | SAML 2.0 | `https://servicenow.test.com` | `https://servicenowagain.test.com` |
-
----
-
 ## Adding a New Application
 
 1. Copy an existing config as a template:
@@ -97,14 +89,6 @@ python3 scripts/onboard_servicenow_saml.py
 - **Never commit `certs/`** — store certificates in a secrets vault
 - **Never commit `metadata/`** — contains tenant-specific IdP metadata
 - Rotate your API client secret regularly (recommended: every 90 days)
-
----
-
-## Tenant
-
-This workspace was built against:
-- **Tenant:** `https://emeabuildlab.verify.ibm.com`
-- **Guardium Collector:** shared environment (see lab design doc)
 
 ---
 
